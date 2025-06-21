@@ -1,0 +1,17 @@
+package decorator;
+
+public class SMSNotifierDecorator extends NotifierDecorator {
+    public SMSNotifierDecorator(Notifier notifier) {
+        super(notifier);
+    }
+
+    @Override
+    public void send(String message) {
+        super.send(message); 
+        addSMSNotification(message);
+    }
+
+    private void addSMSNotification(String message) {
+        System.out.println("Sending SMS: " + message);
+    }
+}
